@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Banner from './Banner';
 import HotJobs from './HotJobs';
 
@@ -9,8 +9,9 @@ const Home = () => {
     return (
         <div>
             <Banner></Banner>
-            <HotJobs jobPromise={jobPromise}></HotJobs>
-            {/* <HotJobs ></HotJobs> */}
+            <Suspense fallback={<p>Loading......</p>}>
+                <HotJobs jobPromise={jobPromise}></HotJobs>
+            </Suspense>
         </div>
     );
 };
