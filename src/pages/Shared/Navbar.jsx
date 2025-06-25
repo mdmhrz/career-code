@@ -17,9 +17,18 @@ const Navbar = () => {
 
     const links = <>
         <li><NavLink to='/'>Home</NavLink></li>
+        {/* For APplicant links. check role as well */}
+
         {
             user && <>
                 <li><NavLink to='/myApplications'>My Applications</NavLink></li>
+            </>
+        }
+
+        {/* For recruiter. check role as well */}
+        {
+            user && <>
+                <li><NavLink to='/addJob'>Add Job</NavLink></li>
             </>
         }
     </>
