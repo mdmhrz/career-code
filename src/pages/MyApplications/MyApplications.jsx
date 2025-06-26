@@ -11,12 +11,14 @@ const MyApplications = () => {
 
     const { user } = useAuth()
 
+    console.log(user.accessToken);
+
     return (
         <div>
             <ApplicationStats></ApplicationStats>
             <Suspense fallback={<p>Loading Your Applicaitons....</p>}>
                 <ApplicationList
-                    myApplicationsPromise={myApplicationsPromise(user.email)}
+                    myApplicationsPromise={myApplicationsPromise(user.email, user.accessToken)}
                 ></ApplicationList>
             </Suspense>
         </div>

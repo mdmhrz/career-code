@@ -47,6 +47,7 @@ const AuthProvider = ({ children }) => {
                     })
                     .catch(error => console.log(error))
             }
+            console.log('user in the auth state change', currentUser);
 
         })
 
