@@ -34,11 +34,11 @@ const AuthProvider = ({ children }) => {
             setLoading(false);
             if (currentUser?.email) {
                 const userData = { email: currentUser.email };
-                axios.post('http://localhost:3000/jwt', userData).then(res => {
-                    console.log('Token after JWT', res.data);
-                    const token = res.data.token;
-                    localStorage.setItem('token', token)
-                }).catch(error => console.log(error))
+                axios.post('http://localhost:3000/jwt', userData, { withCredentials: true })
+                    .then(res => {
+                        console.log(res.data);
+                    })
+                    .then(error => console.log(error))
             }
 
         })
